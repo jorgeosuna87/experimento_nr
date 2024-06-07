@@ -18,7 +18,7 @@
         "id": "190ed3e96d0709a5",
         "type": "tab",
         "label": "ADC2",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -26,7 +26,7 @@
         "id": "5abe0cc40f5ad9c5",
         "type": "tab",
         "label": "DVP-04TC",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -34,7 +34,7 @@
         "id": "af530bfa0859125d",
         "type": "tab",
         "label": "ADC_8CH",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -42,7 +42,7 @@
         "id": "9fa46c697055fd5a",
         "type": "tab",
         "label": "T. Principal RTU",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
