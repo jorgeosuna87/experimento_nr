@@ -7470,8 +7470,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 780,
-        "y": 740,
+        "x": 520,
+        "y": 640,
         "wires": [
             [
                 "6d5876df5040f740"
@@ -7490,8 +7490,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
-        "y": 860,
+        "x": 520,
+        "y": 740,
         "wires": [
             [
                 "3daa9c2cfd4bfdc3"
@@ -7515,8 +7515,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 920,
-        "y": 900,
+        "x": 690,
+        "y": 780,
         "wires": [
             []
         ]
@@ -7542,8 +7542,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 460,
-        "y": 860,
+        "x": 320,
+        "y": 760,
         "wires": [
             [
                 "6d5876df5040f740"
@@ -7591,8 +7591,8 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 910,
-        "y": 820,
+        "x": 700,
+        "y": 720,
         "wires": [
             [
                 "ab9e4d816b6ea51c"
@@ -7943,35 +7943,6 @@
         "wires": []
     },
     {
-        "id": "4781ed964811100a",
-        "type": "inject",
-        "z": "897febeee65a86fd",
-        "name": "ADC_1_AI0",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "1",
-        "topic": "read_ADC1_AI0",
-        "payload": "{\"value\": Math.floor(Math.random() * (20000 - 4000) + 4000), \"fc\": 4, \"unitid\": 1, \"address\": 0, \"quantity\": 1}",
-        "payloadType": "jsonata",
-        "x": 940,
-        "y": 660,
-        "wires": [
-            [
-                "e6a36a74b4b02e6c"
-            ]
-        ]
-    },
-    {
         "id": "ec36ebfda7a0c3d9",
         "type": "inject",
         "z": "897febeee65a86fd",
@@ -7996,35 +7967,6 @@
         "y": 520,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "7bf5d1c516fb15ea",
-        "type": "inject",
-        "z": "897febeee65a86fd",
-        "name": "ADC_1_AI1",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "1",
-        "topic": "read_ADC1_AI1",
-        "payload": "{\"value\": Math.floor(Math.random() * (20000 - 4000) + 4000), \"fc\": 4, \"unitid\": 1, \"address\": 1, \"quantity\": 1}",
-        "payloadType": "jsonata",
-        "x": 980,
-        "y": 980,
-        "wires": [
-            [
-                "e6a36a74b4b02e6c"
-            ]
         ]
     },
     {
@@ -8058,6 +8000,100 @@
         "x": 1250,
         "y": 980,
         "wires": []
+    },
+    {
+        "id": "532f1dd2a659e58c",
+        "type": "inject",
+        "z": "897febeee65a86fd",
+        "name": "ADC_1_AI0",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "read_ADC1_AI0",
+        "payload": "",
+        "payloadType": "json",
+        "x": 900,
+        "y": 760,
+        "wires": [
+            [
+                "random_adc1_ai0"
+            ]
+        ]
+    },
+    {
+        "id": "416ae66fe212df5e",
+        "type": "inject",
+        "z": "897febeee65a86fd",
+        "name": "ADC_1_AI1",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "read_ADC1_AI1",
+        "payload": "",
+        "payloadType": "json",
+        "x": 900,
+        "y": 900,
+        "wires": [
+            [
+                "random_adc1_ai1"
+            ]
+        ]
+    },
+    {
+        "id": "random_adc1_ai0",
+        "type": "function",
+        "z": "897febeee65a86fd",
+        "name": "Random Data ADC_1_AI0",
+        "func": "msg.payload = {\"value\": Math.floor(Math.random() * (20000 - 4000) + 4000), \"fc\": 4, \"unitid\": 1, \"address\": 0, \"quantity\": 1};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 950,
+        "y": 680,
+        "wires": [
+            [
+                "e6a36a74b4b02e6c"
+            ]
+        ]
+    },
+    {
+        "id": "random_adc1_ai1",
+        "type": "function",
+        "z": "897febeee65a86fd",
+        "name": "Random Data ADC_1_AI1",
+        "func": "msg.payload = {\"value\": Math.floor(Math.random() * (20000 - 4000) + 4000), \"fc\": 4, \"unitid\": 1, \"address\": 1, \"quantity\": 1};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 930,
+        "y": 980,
+        "wires": [
+            [
+                "e6a36a74b4b02e6c"
+            ]
+        ]
     },
     {
         "id": "c354c96974a1c4a1",
