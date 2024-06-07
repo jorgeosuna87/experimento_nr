@@ -8002,7 +8002,47 @@
         "wires": []
     },
     {
-        "id": "532f1dd2a659e58c",
+        "id": "random_adc1_ai0",
+        "type": "function",
+        "z": "897febeee65a86fd",
+        "name": "Random Data ADC_1_AI0",
+        "func": "msg.payload = {\n    \"value\": Math.floor(Math.random() * (20000 - 4000) + 4000),\n    \"fc\": 4,\n    \"unitid\": 1,\n    \"address\": 0,\n    \"quantity\": 1\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 680,
+        "wires": [
+            [
+                "e6a36a74b4b02e6c"
+            ]
+        ]
+    },
+    {
+        "id": "random_adc1_ai1",
+        "type": "function",
+        "z": "897febeee65a86fd",
+        "name": "Random Data ADC_1_AI1",
+        "func": "msg.payload = {\n    \"value\": Math.floor(Math.random() * (20000 - 4000) + 4000),\n    \"fc\": 4,\n    \"unitid\": 1,\n    \"address\": 1,\n    \"quantity\": 1\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 980,
+        "wires": [
+            [
+                "e6a36a74b4b02e6c"
+            ]
+        ]
+    },
+    {
+        "id": "4781ed964811100a",
         "type": "inject",
         "z": "897febeee65a86fd",
         "name": "ADC_1_AI0",
@@ -8022,8 +8062,8 @@
         "topic": "read_ADC1_AI0",
         "payload": "",
         "payloadType": "json",
-        "x": 900,
-        "y": 760,
+        "x": 920,
+        "y": 740,
         "wires": [
             [
                 "random_adc1_ai0"
@@ -8031,7 +8071,7 @@
         ]
     },
     {
-        "id": "416ae66fe212df5e",
+        "id": "7bf5d1c516fb15ea",
         "type": "inject",
         "z": "897febeee65a86fd",
         "name": "ADC_1_AI1",
@@ -8052,46 +8092,10 @@
         "payload": "",
         "payloadType": "json",
         "x": 900,
-        "y": 900,
+        "y": 860,
         "wires": [
             [
                 "random_adc1_ai1"
-            ]
-        ]
-    },
-    {
-        "id": "random_adc1_ai0",
-        "type": "function",
-        "z": "897febeee65a86fd",
-        "name": "Random Data ADC_1_AI0",
-        "func": "msg.payload = {\"value\": Math.floor(Math.random() * (20000 - 4000) + 4000), \"fc\": 4, \"unitid\": 1, \"address\": 0, \"quantity\": 1};\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 950,
-        "y": 680,
-        "wires": [
-            [
-                "e6a36a74b4b02e6c"
-            ]
-        ]
-    },
-    {
-        "id": "random_adc1_ai1",
-        "type": "function",
-        "z": "897febeee65a86fd",
-        "name": "Random Data ADC_1_AI1",
-        "func": "msg.payload = {\"value\": Math.floor(Math.random() * (20000 - 4000) + 4000), \"fc\": 4, \"unitid\": 1, \"address\": 1, \"quantity\": 1};\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 930,
-        "y": 980,
-        "wires": [
-            [
-                "e6a36a74b4b02e6c"
             ]
         ]
     },
