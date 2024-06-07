@@ -7794,7 +7794,7 @@
         "expiry": "",
         "broker": "3b8eefdff633489b",
         "x": 1520,
-        "y": 900,
+        "y": 920,
         "wires": []
     },
     {
@@ -7810,7 +7810,7 @@
         "finalize": "",
         "libs": [],
         "x": 1350,
-        "y": 860,
+        "y": 880,
         "wires": [
             [
                 "41505558b752f6dd"
@@ -7830,7 +7830,7 @@
         "finalize": "",
         "libs": [],
         "x": 1360,
-        "y": 900,
+        "y": 920,
         "wires": [
             [
                 "be39fb82418c1506"
@@ -7855,7 +7855,7 @@
         "color": "#717171",
         "className": "",
         "x": 1530,
-        "y": 860,
+        "y": 880,
         "wires": []
     },
     {
@@ -7875,8 +7875,45 @@
         "wires": [
             [
                 "466b14e3eeb05193",
-                "b00916a459e07505"
+                "b00916a459e07505",
+                "fde403123a42bdbb"
             ]
+        ]
+    },
+    {
+        "id": "fde403123a42bdbb",
+        "type": "function",
+        "z": "897febeee65a86fd",
+        "name": "F_influx_temp",
+        "func": "const measurement = \"temperatura\"; // Nombre de la medición\nconst tags = {\n    equipo: \"ST-2.1\", // Cambia esto según tu equipo\n    ubicacion: \"Refineria\" // Cambia esto según la ubicación\n};\nconst fields = {\n    valor: msg.payload // Asume que msg.payload contiene el valor de temperatura\n};\nconst timestamp = new Date(); // Marca de tiempo actual\n\nmsg.payload = [\n    {\n        measurement: measurement,\n        tags: tags,\n        fields: fields,\n        timestamp: timestamp\n    }\n];\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1340,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e3b93b8fb390d04a",
+        "type": "function",
+        "z": "897febeee65a86fd",
+        "name": "F_influx_vol",
+        "func": "const measurement = \"volumen\"; // Nombre de la medición\nconst tags = {\n    equipo: \"MN-2.1\", // Cambia esto según tu equipo\n    ubicacion: \"Refineria\" // Cambia esto según la ubicación\n};\nconst fields = {\n    valor: msg.payload // Asume que msg.payload contiene el valor de volumen\n};\nconst timestamp = new Date(); // Marca de tiempo actual\n\nmsg.payload = [\n    {\n        measurement: measurement,\n        tags: tags,\n        fields: fields,\n        timestamp: timestamp\n    }\n];\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1350,
+        "y": 660,
+        "wires": [
+            []
         ]
     },
     {
