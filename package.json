@@ -1,0 +1,12 @@
+{
+    "name": "pruebas_tablero",
+    "description": "flujo para experimentar",
+    "version": "0.0.1",
+    "dependencies": {},
+    "node-red": {
+        "settings": {
+            "flowFile": "flujo_experimentacion.json",
+            "credentialsFile": "flujo_experimentacion_cred.json"
+        }
+    }
+}
