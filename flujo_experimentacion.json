@@ -7919,7 +7919,7 @@
         "precisionV18FluxV20": "ms",
         "retentionPolicyV18Flux": "",
         "org": "aspro",
-        "bucket": "refineria",
+        "bucket": "Refineria",
         "x": 1510,
         "y": 700,
         "wires": []
@@ -7937,7 +7937,7 @@
         "precisionV18FluxV20": "ms",
         "retentionPolicyV18Flux": "",
         "org": "aspro",
-        "bucket": "refineria",
+        "bucket": "Refineria",
         "x": 1530,
         "y": 840,
         "wires": []
