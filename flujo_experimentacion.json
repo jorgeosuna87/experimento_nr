@@ -1406,6 +1406,21 @@
         "disabled": "false"
     },
     {
+        "id": "ed48d447e5ea8d0c",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "database",
+        "name": "influxdb_refineria",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://localhost:8086",
+        "timeout": "10",
+        "rejectUnauthorized": true
+    },
+    {
         "id": "2",
         "type": "inject",
         "z": "1",
@@ -7552,7 +7567,8 @@
         "wires": [
             [
                 "d0f9845fe25bafb5",
-                "6ba057fb54a62204"
+                "6ba057fb54a62204",
+                "e3b93b8fb390d04a"
             ],
             []
         ]
@@ -7895,7 +7911,9 @@
         "x": 1340,
         "y": 840,
         "wires": [
-            []
+            [
+                "6896b7b682b7b820"
+            ]
         ]
     },
     {
@@ -7910,11 +7928,48 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1350,
-        "y": 660,
+        "x": 1330,
+        "y": 700,
         "wires": [
-            []
+            [
+                "5c6de4893b26f103"
+            ]
         ]
+    },
+    {
+        "id": "5c6de4893b26f103",
+        "type": "influxdb out",
+        "z": "897febeee65a86fd",
+        "influxdb": "ed48d447e5ea8d0c",
+        "name": "vol_MN-2.1",
+        "measurement": "volumen",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "aspro",
+        "bucket": "refineria",
+        "x": 1510,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "6896b7b682b7b820",
+        "type": "influxdb out",
+        "z": "897febeee65a86fd",
+        "name": "",
+        "measurement": "",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1520,
+        "y": 840,
+        "wires": []
     },
     {
         "id": "c354c96974a1c4a1",
