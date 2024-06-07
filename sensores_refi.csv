@@ -1,0 +1,17 @@
+equipo_id,nombre_equipo,tipo_medicion,unidad,descripcion
+MN-1,Medidor de Nivel 1,volumen,l,Tanque FA-01
+MN-2A,Medidor de Nivel 2A,volumen,l,Tanque FA-02A
+MN-4,Medidor de Nivel 4,volumen,l,Tanque FA-04
+MN-6A,Medidor de Nivel 6A,volumen,l,Tanque FA-006
+MN-6B,Medidor de Nivel 6B,volumen,l,Tanque FA-06B
+MN-7,Medidor de Nivel 7,volumen,l,Tanque FA-07
+MN-9,Medidor de Nivel 9,volumen,l,Tanque FA-09
+ST-2.1,Termómetro 2.1,temperatura,°C,Entrada BA-01
+ST-2.2,Termómetro 2.2,temperatura,°C,Salida BA-01
+ST-3.1,Termómetro 3.1,temperatura,°C,Inferior DA-01
+ST-3.2,Termómetro 3.2,temperatura,°C,Superior DA-01
+ST-3.3,Termómetro 3.3,temperatura,°C,Inferior DA-02
+ST-3.4,Termómetro 3.4,temperatura,°C,Superior DA-02
+MP-1.1,Transmisor de presion,presion,kg/cm2,Salida GA-02
+MF-1.1,Medidor de Flujo 1.1,flujo,l/h,flujo alimentacion
+MF-3.1,Medidor de Flujo 3.1,flujo,l/h,flujo retorno hcd
