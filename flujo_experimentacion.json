@@ -7737,35 +7737,6 @@
         ]
     },
     {
-        "id": "ec36ebfda7a0c3d9",
-        "type": "inject",
-        "z": "897febeee65a86fd",
-        "name": "ADC_1_AI0",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "1",
-        "topic": "read_ADC1_AI0",
-        "payload": "{\"value\":0,\"fc\":4,\"unitid\":1,\"address\":0,\"quantity\":1}",
-        "payloadType": "json",
-        "x": 450,
-        "y": 760,
-        "wires": [
-            [
-                "6d5876df5040f740"
-            ]
-        ]
-    },
-    {
         "id": "c7a735c2eecc0247",
         "type": "inject",
         "z": "897febeee65a86fd",
@@ -7786,12 +7757,10 @@
         "topic": "read_ADC1_AI1",
         "payload": "{\"value\":0,\"fc\":4,\"unitid\":1,\"address\":1,\"quantity\":1}",
         "payloadType": "json",
-        "x": 450,
-        "y": 820,
+        "x": 440,
+        "y": 560,
         "wires": [
-            [
-                "6d5876df5040f740"
-            ]
+            []
         ]
     },
     {
@@ -7971,6 +7940,91 @@
         "x": 1530,
         "y": 840,
         "wires": []
+    },
+    {
+        "id": "4781ed964811100a",
+        "type": "inject",
+        "z": "897febeee65a86fd",
+        "name": "ADC_1_AI0",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "read_ADC1_AI0",
+        "payload": "{\"value\": Math.floor(Math.random() * (20000 - 4000) + 4000), \"fc\": 4, \"unitid\": 1, \"address\": 0, \"quantity\": 1}",
+        "payloadType": "jsonata",
+        "x": 440,
+        "y": 760,
+        "wires": [
+            [
+                "6d5876df5040f740"
+            ]
+        ]
+    },
+    {
+        "id": "ec36ebfda7a0c3d9",
+        "type": "inject",
+        "z": "897febeee65a86fd",
+        "name": "ADC_1_AI0",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "read_ADC1_AI0",
+        "payload": "{\"value\":0,\"fc\":4,\"unitid\":1,\"address\":0,\"quantity\":1}",
+        "payloadType": "json",
+        "x": 440,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7bf5d1c516fb15ea",
+        "type": "inject",
+        "z": "897febeee65a86fd",
+        "name": "ADC_1_AI1",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "read_ADC1_AI1",
+        "payload": "{\"value\": Math.floor(Math.random() * (20000 - 4000) + 4000), \"fc\": 4, \"unitid\": 1, \"address\": 1, \"quantity\": 1}",
+        "payloadType": "jsonata",
+        "x": 440,
+        "y": 800,
+        "wires": [
+            [
+                "6d5876df5040f740"
+            ]
+        ]
     },
     {
         "id": "c354c96974a1c4a1",
