@@ -7595,8 +7595,7 @@
         "y": 820,
         "wires": [
             [
-                "ab9e4d816b6ea51c",
-                "e6a36a74b4b02e6c"
+                "ab9e4d816b6ea51c"
             ],
             []
         ]
@@ -7964,11 +7963,11 @@
         "topic": "read_ADC1_AI0",
         "payload": "{\"value\": Math.floor(Math.random() * (20000 - 4000) + 4000), \"fc\": 4, \"unitid\": 1, \"address\": 0, \"quantity\": 1}",
         "payloadType": "jsonata",
-        "x": 440,
-        "y": 760,
+        "x": 940,
+        "y": 660,
         "wires": [
             [
-                "6d5876df5040f740"
+                "e6a36a74b4b02e6c"
             ]
         ]
     },
@@ -8020,11 +8019,11 @@
         "topic": "read_ADC1_AI1",
         "payload": "{\"value\": Math.floor(Math.random() * (20000 - 4000) + 4000), \"fc\": 4, \"unitid\": 1, \"address\": 1, \"quantity\": 1}",
         "payloadType": "jsonata",
-        "x": 440,
-        "y": 800,
+        "x": 980,
+        "y": 980,
         "wires": [
             [
-                "6d5876df5040f740"
+                "e6a36a74b4b02e6c"
             ]
         ]
     },
