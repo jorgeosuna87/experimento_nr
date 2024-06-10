@@ -42,7 +42,7 @@
         "id": "9fa46c697055fd5a",
         "type": "tab",
         "label": "T. Principal RTU",
-        "disabled": true,
+        "disabled": false,
         "info": "",
         "env": []
     },
@@ -110,7 +110,7 @@
         "id": "a0e56fbde5890b62",
         "type": "tab",
         "label": "RTU simplificado",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -6438,7 +6438,7 @@
         "type": "function",
         "z": "9fa46c697055fd5a",
         "name": "calc_vol",
-        "func": "const valorCrudo = msg.payload[0];\nconst valorLitros = ((valorCrudo - 4000) / (20000 - 4000)) * (40000 - 0);\nmsg.payload = Math.round(valorLitros);  // Mantener solo el valor numérico\nreturn msg;\n",
+        "func": "const valorCrudo = msg.payload; // Usar directamente msg.payload\nconst valorLitros = ((valorCrudo - 4000) / (20000 - 4000)) * (40000 - 0);\nmsg.payload = Math.round(valorLitros);  // Mantener solo el valor numérico\nreturn msg;\n",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -6451,7 +6451,9 @@
             [
                 "18eab2c3c21c232b",
                 "3fdacd0a92232648",
-                "26e5c2b41a0956af"
+                "26e5c2b41a0956af",
+                "84517156e2445598",
+                "f5f96c1fa5ca62cb"
             ],
             []
         ]
@@ -6461,7 +6463,7 @@
         "type": "function",
         "z": "9fa46c697055fd5a",
         "name": "Data Accumulation Node",
-        "func": "let cola = flow.get(\"colaLecturas\") || [];\nconst tiempoMaximo = 300000; // 5 minutos en milisegundos\n\n// Añadir nuevo registro con timestamp actual si no viene incluido en el mensaje\nconst tiempoRegistro = msg.payload.timestamp || Date.now();  // Usar timestamp del mensaje o el tiempo actual si no está disponible\ncola.push({\n    tiempo: tiempoRegistro,\n    volumen: msg.payload[0] // Asumiendo que el volumen viene en msg.payload como primer elemento del array\n});\n\n// Eliminar registros más antiguos que el tiempo máximo permitido\nlet tiempoActual = Date.now();\ncola = cola.filter(registro => (tiempoActual - registro.tiempo) <= tiempoMaximo);\n\n// Guardar la cola actualizada en el contexto del flujo\nflow.set(\"colaLecturas\", cola);\n\n// Pasar la cola completa al siguiente nodo para su procesamiento\nreturn { payload: cola };\n",
+        "func": "let cola = flow.get(\"colaLecturas\") || [];\nconst tiempoMaximo = 300000; // 5 minutos en milisegundos\n\n// Añadir nuevo registro con timestamp actual si no viene incluido en el mensaje\nconst tiempoRegistro = msg.payload.timestamp || Date.now();  // Usar timestamp del mensaje o el tiempo actual si no está disponible\ncola.push({\n    tiempo: tiempoRegistro,\n    volumen: msg.payload // Usar directamente msg.payload\n});\n\n// Eliminar registros más antiguos que el tiempo máximo permitido\nlet tiempoActual = Date.now();\ncola = cola.filter(registro => (tiempoActual - registro.tiempo) <= tiempoMaximo);\n\n// Guardar la cola actualizada en el contexto del flujo\nflow.set(\"colaLecturas\", cola);\n\n// Pasar la cola completa al siguiente nodo para su procesamiento\nreturn { payload: cola };\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -6520,7 +6522,7 @@
         "type": "function",
         "z": "9fa46c697055fd5a",
         "name": "calc_presion",
-        "func": "const valorADCMin = 4000;\nconst valorADCMax = 20000;\nconst valorMin = 0;\nconst valorMax = 10.1972;\n\nconst valorADC = msg.payload[0];\nconst valorPresion = ((valorADC - valorADCMin) / (valorADCMax - valorADCMin)) * (valorMax - valorMin) + valorMin;\n\nmsg.payload = valorPresion.toFixed(4);\n\nreturn msg;\n",
+        "func": "const valorADCMin = 4000;\nconst valorADCMax = 20000;\nconst valorMin = 0;\nconst valorMax = 10.1972;\n\nconst valorADC = msg.payload;\nconst valorPresion = ((valorADC - valorADCMin) / (valorADCMax - valorADCMin)) * (valorMax - valorMin) + valorMin;\n\nmsg.payload = valorPresion.toFixed(4);\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -7230,7 +7232,7 @@
         "type": "function",
         "z": "9fa46c697055fd5a",
         "name": "calc_temp",
-        "func": "const valorADCMin = 4000;\nconst valorADCMax = 20000;\nconst valorMin = 0;\nconst valorMax = 1300;\n\nconst valorADC = msg.payload[0];\nconst valorTemperatura = ((valorADC - valorADCMin) / (valorADCMax - valorADCMin)) * (valorMax - valorMin) + valorMin;\n\nmsg.payload = Math.round(valorTemperatura);\n\nreturn msg;\n",
+        "func": "const valorADCMin = 4000;\nconst valorADCMax = 20000;\nconst valorMin = 0;\nconst valorMax = 1300;\n\nconst valorADC = msg.payload;\nconst valorTemperatura = ((valorADC - valorADCMin) / (valorADCMax - valorADCMin)) * (valorMax - valorMin) + valorMin;\n\nmsg.payload = Math.round(valorTemperatura);\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -7251,7 +7253,7 @@
         "type": "function",
         "z": "9fa46c697055fd5a",
         "name": "calc_temp",
-        "func": "const valorADCMin = 4000;\nconst valorADCMax = 20000;\nconst valorMin = 0;\nconst valorMax = 1300;\n\nconst valorADC = msg.payload[0];\nconst valorTemperatura = ((valorADC - valorADCMin) / (valorADCMax - valorADCMin)) * (valorMax - valorMin) + valorMin;\n\nmsg.payload = Math.round(valorTemperatura);\n\nreturn msg;\n",
+        "func": "const valorADCMin = 4000;\nconst valorADCMax = 20000;\nconst valorMin = 0;\nconst valorMax = 1300;\n\nconst valorADC = msg.payload;\nconst valorTemperatura = ((valorADC - valorADCMin) / (valorADCMax - valorADCMin)) * (valorMax - valorMin) + valorMin;\n\nmsg.payload = Math.round(valorTemperatura);\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -7263,7 +7265,9 @@
         "wires": [
             [
                 "8c67b189d0ac49f0",
-                "d53001100386791f"
+                "d53001100386791f",
+                "b9b3caeb790b80fe",
+                "b0c87d731ec16bfe"
             ]
         ]
     },
@@ -7479,6 +7483,133 @@
         "dname": "MTO",
         "x": 1040,
         "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "84517156e2445598",
+        "type": "function",
+        "z": "9fa46c697055fd5a",
+        "name": "F_influx_vol",
+        "func": "msg.payload = {\n    bucket: 'sensores',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MN-2.1',\n                equipo_id: 'FA-02A',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                nivel_litros: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1950,
+        "y": 600,
+        "wires": [
+            [
+                "502ec4d7d999a369"
+            ]
+        ]
+    },
+    {
+        "id": "502ec4d7d999a369",
+        "type": "Stackhero-InfluxDB-v2-write",
+        "z": "9fa46c697055fd5a",
+        "server": "a1b3d7fc83d5c6f6",
+        "name": "DB",
+        "x": 2370,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8a8aa07e83314529",
+        "type": "inject",
+        "z": "9fa46c697055fd5a",
+        "name": "sim",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "19500",
+        "payloadType": "num",
+        "x": 1490,
+        "y": 480,
+        "wires": [
+            [
+                "9a01a5f2a23f06fd",
+                "e2fd54688464cad7"
+            ]
+        ]
+    },
+    {
+        "id": "f5f96c1fa5ca62cb",
+        "type": "debug",
+        "z": "9fa46c697055fd5a",
+        "name": "debug 38",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1840,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "b9b3caeb790b80fe",
+        "type": "function",
+        "z": "9fa46c697055fd5a",
+        "name": "F_influx_temp",
+        "func": "msg.payload = {\n    bucket: 'sensores',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-2.1',\n                equipo_id: 'BA-01',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2020,
+        "y": 940,
+        "wires": [
+            [
+                "502ec4d7d999a369",
+                "7e6c4fc4fea5d9d8"
+            ]
+        ]
+    },
+    {
+        "id": "7e6c4fc4fea5d9d8",
+        "type": "debug",
+        "z": "9fa46c697055fd5a",
+        "name": "debug 39",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2150,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "b0c87d731ec16bfe",
+        "type": "debug",
+        "z": "9fa46c697055fd5a",
+        "name": "debug 40",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1870,
+        "y": 940,
         "wires": []
     },
     {
