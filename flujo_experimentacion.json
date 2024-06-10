@@ -11516,8 +11516,8 @@
         "once": true,
         "onceDelay": "1",
         "topic": "read_ADC1_AI1",
-        "x": 900,
-        "y": 860,
+        "x": 960,
+        "y": 940,
         "wires": [
             [
                 "1cf7ad9ffeddd517"
@@ -11540,8 +11540,8 @@
         "once": true,
         "onceDelay": 1,
         "topic": "read_ADC1_AI0",
-        "x": 920,
-        "y": 760,
+        "x": 1000,
+        "y": 620,
         "wires": [
             [
                 "b71cb2f35ca5db78"
