@@ -1,5 +1,13 @@
 {
     "ed48d447e5ea8d0c": {
         "token": "Qz1cD5iPJobxfu8s53BmdYf1_3a38pQuBCika0B5Ws61_MWuI4aq8OtNsYxX_mfqSTcBzZwB6l7eZ6YWTZGU-A=="
+    },
+    "3fda7827b7b83ee3": {
+        "token": "I6q8jKR7XZbDyjM_eF_5t0YC24VZkfBAqApcYEx7y3IW2SF8vy9Gi6Z8RtMrFQdhXk-3TCfaXhJ1zba5aECBfg=="
+    },
+    "a1b3d7fc83d5c6f6": {
+        "token": "I6q8jKR7XZbDyjM_eF_5t0YC24VZkfBAqApcYEx7y3IW2SF8vy9Gi6Z8RtMrFQdhXk-3TCfaXhJ1zba5aECBfg==",
+        "organization": "aspro",
+        "bucket": "sensores"
     }
 }
