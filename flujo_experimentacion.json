@@ -6452,8 +6452,7 @@
                 "18eab2c3c21c232b",
                 "3fdacd0a92232648",
                 "26e5c2b41a0956af",
-                "84517156e2445598",
-                "f5f96c1fa5ca62cb"
+                "84517156e2445598"
             ],
             []
         ]
@@ -6522,7 +6521,7 @@
         "type": "function",
         "z": "9fa46c697055fd5a",
         "name": "calc_presion",
-        "func": "const valorADCMin = 4000;\nconst valorADCMax = 20000;\nconst valorMin = 0;\nconst valorMax = 10.1972;\n\nconst valorADC = msg.payload;\nconst valorPresion = ((valorADC - valorADCMin) / (valorADCMax - valorADCMin)) * (valorMax - valorMin) + valorMin;\n\nmsg.payload = valorPresion.toFixed(4);\n\nreturn msg;\n",
+        "func": "const valorADCMin = 4000;\nconst valorADCMax = 20000;\nconst valorMin = 0;\nconst valorMax = 10.1972;\n\nconst valorADC = msg.payload;\nconst valorPresion = ((valorADC - valorADCMin) / (valorADCMax - valorMin)) * (valorMax - valorMin) + valorMin;\n\nmsg.payload = Number(valorPresion.toFixed(4));\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -6534,7 +6533,8 @@
         "wires": [
             [
                 "cf76eeb0d17bcb0c",
-                "09835dd1239de5ec"
+                "09835dd1239de5ec",
+                "bdc7c6e18b820b06"
             ]
         ]
     },
@@ -6679,7 +6679,7 @@
         "finalize": "",
         "libs": [],
         "x": 1900,
-        "y": 720,
+        "y": 700,
         "wires": [
             [
                 "da7568d07a7a4076"
@@ -6702,7 +6702,7 @@
         "expiry": "",
         "broker": "feca9c5ced6ec599",
         "x": 2060,
-        "y": 720,
+        "y": 700,
         "wires": []
     },
     {
@@ -7244,7 +7244,8 @@
         "wires": [
             [
                 "53bc7861172a15e8",
-                "e1ac2c5b7610bf5a"
+                "e1ac2c5b7610bf5a",
+                "5c927be20b3e48d7"
             ]
         ]
     },
@@ -7266,8 +7267,7 @@
             [
                 "8c67b189d0ac49f0",
                 "d53001100386791f",
-                "b9b3caeb790b80fe",
-                "b0c87d731ec16bfe"
+                "b9b3caeb790b80fe"
             ]
         ]
     },
@@ -7544,7 +7544,94 @@
         ]
     },
     {
-        "id": "f5f96c1fa5ca62cb",
+        "id": "b9b3caeb790b80fe",
+        "type": "function",
+        "z": "9fa46c697055fd5a",
+        "name": "F_influx_temp",
+        "func": "msg.payload = {\n    bucket: 'sensores',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-2.1',\n                equipo_id: 'ent-BA-01',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2040,
+        "y": 940,
+        "wires": [
+            [
+                "502ec4d7d999a369"
+            ]
+        ]
+    },
+    {
+        "id": "5c927be20b3e48d7",
+        "type": "function",
+        "z": "9fa46c697055fd5a",
+        "name": "F_influx_temp",
+        "func": "msg.payload = {\n    bucket: 'sensores',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-2.2',\n                equipo_id: 'sal-BA-01',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2020,
+        "y": 740,
+        "wires": [
+            [
+                "502ec4d7d999a369"
+            ]
+        ]
+    },
+    {
+        "id": "4057baaaf4ce627d",
+        "type": "inject",
+        "z": "9fa46c697055fd5a",
+        "name": "sim",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "15500",
+        "payloadType": "num",
+        "x": 1530,
+        "y": 860,
+        "wires": [
+            [
+                "ed83ac5be50fc27a",
+                "afb5d4de17525b0c"
+            ]
+        ]
+    },
+    {
+        "id": "bdc7c6e18b820b06",
+        "type": "function",
+        "z": "9fa46c697055fd5a",
+        "name": "F_influx_presion",
+        "func": "msg.payload = {\n    bucket: 'sensores',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'MP-1.1',\n                equipo_id: 'FA-02A',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                presion_kg: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1920,
+        "y": 660,
+        "wires": [
+            [
+                "502ec4d7d999a369",
+                "0a0c33bb829f3465"
+            ]
+        ]
+    },
+    {
+        "id": "0a0c33bb829f3465",
         "type": "debug",
         "z": "9fa46c697055fd5a",
         "name": "debug 38",
@@ -7555,61 +7642,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1840,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "b9b3caeb790b80fe",
-        "type": "function",
-        "z": "9fa46c697055fd5a",
-        "name": "F_influx_temp",
-        "func": "msg.payload = {\n    bucket: 'sensores',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-2.1',\n                equipo_id: 'BA-01',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 2020,
-        "y": 940,
-        "wires": [
-            [
-                "502ec4d7d999a369",
-                "7e6c4fc4fea5d9d8"
-            ]
-        ]
-    },
-    {
-        "id": "7e6c4fc4fea5d9d8",
-        "type": "debug",
-        "z": "9fa46c697055fd5a",
-        "name": "debug 39",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2150,
-        "y": 980,
-        "wires": []
-    },
-    {
-        "id": "b0c87d731ec16bfe",
-        "type": "debug",
-        "z": "9fa46c697055fd5a",
-        "name": "debug 40",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1870,
-        "y": 940,
+        "x": 2170,
+        "y": 660,
         "wires": []
     },
     {
