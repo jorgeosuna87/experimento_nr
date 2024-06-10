@@ -11651,7 +11651,7 @@
         "type": "function",
         "z": "a0e56fbde5890b62",
         "name": "F_influx_temp",
-        "func": "msg.payload = {\n    bucket: 'sensores',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            \n            tags: {\n                sensor_id: 'ST-2.1',\n                equipo_id: 'BA-01',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
+        "func": "msg.payload = {\n    bucket: 'sensores',\n    precision: 'ms',\n    data: [\n        {\n            measurement: 'ParametrosProceso',\n            tags: {\n                sensor_id: 'ST-2.1',\n                equipo_id: 'BA-01',\n                ubicacion: 'destilados'\n            },\n            fields: {\n                temperatura_c: msg.payload\n            },\n            timestamp: Date.now()\n        }\n    ]\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
