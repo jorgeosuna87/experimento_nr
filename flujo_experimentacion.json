@@ -7532,7 +7532,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "19500",
+        "payload": "15600",
         "payloadType": "num",
         "x": 1490,
         "y": 480,
@@ -7598,14 +7598,15 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "15500",
+        "payload": "9500",
         "payloadType": "num",
         "x": 1530,
         "y": 860,
         "wires": [
             [
                 "ed83ac5be50fc27a",
-                "afb5d4de17525b0c"
+                "afb5d4de17525b0c",
+                "e2fd54688464cad7"
             ]
         ]
     },
