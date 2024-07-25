@@ -10153,43 +10153,6 @@
         "wires": []
     },
     {
-        "id": "143cc9fa3c9cf5c7",
-        "type": "mqtt in",
-        "z": "0abce1a265bb0231",
-        "name": "Sensor de Flujo",
-        "topic": "sensor/simulated",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "mqtt_broker_1",
-        "nl": false,
-        "rap": false,
-        "inputs": 0,
-        "x": 360,
-        "y": 800,
-        "wires": [
-            [
-                "ca806af6801a78db",
-                "e4475e804c34ec05"
-            ]
-        ]
-    },
-    {
-        "id": "ca806af6801a78db",
-        "type": "debug",
-        "z": "0abce1a265bb0231",
-        "name": "debug 32",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 640,
-        "y": 840,
-        "wires": []
-    },
-    {
         "id": "331bcfb3b61fc139",
         "type": "ui-gauge",
         "z": "0abce1a265bb0231",
@@ -10229,48 +10192,6 @@
         "className": "",
         "x": 630,
         "y": 640,
-        "wires": []
-    },
-    {
-        "id": "e4475e804c34ec05",
-        "type": "ui-gauge",
-        "z": "0abce1a265bb0231",
-        "name": "flujo_retorno_HCD",
-        "group": "3f690bb5a526a246",
-        "order": 0,
-        "width": 3,
-        "height": 3,
-        "gtype": "gauge-half",
-        "gstyle": "rounded",
-        "title": "Retorno HCD",
-        "units": "L/hr",
-        "icon": "",
-        "prefix": "",
-        "suffix": "",
-        "segments": [
-            {
-                "from": "0",
-                "color": "#5cd65c"
-            },
-            {
-                "from": "300",
-                "color": "#ffc800"
-            },
-            {
-                "from": "400",
-                "color": "#ea5353"
-            }
-        ],
-        "min": 0,
-        "max": "600",
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
-        "styleRounded": true,
-        "styleGlow": false,
-        "className": "",
-        "x": 610,
-        "y": 800,
         "wires": []
     },
     {
@@ -10347,6 +10268,86 @@
         "bucket": "prueba_1",
         "x": 680,
         "y": 580,
+        "wires": []
+    },
+    {
+        "id": "6b823521e497954e",
+        "type": "mqtt in",
+        "z": "0abce1a265bb0231",
+        "name": "Sensor de Flujo",
+        "topic": "sensor/simulated",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "mqtt_broker_1",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 1160,
+        "y": 800,
+        "wires": [
+            [
+                "2506ad4c3c87ccb4",
+                "bcd09e3a6af1142f"
+            ]
+        ]
+    },
+    {
+        "id": "2506ad4c3c87ccb4",
+        "type": "debug",
+        "z": "0abce1a265bb0231",
+        "name": "debug 32",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1440,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "bcd09e3a6af1142f",
+        "type": "ui-gauge",
+        "z": "0abce1a265bb0231",
+        "name": "flujo_retorno_HCD",
+        "group": "3f690bb5a526a246",
+        "order": 0,
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "rounded",
+        "title": "Retorno HCD",
+        "units": "L/hr",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c"
+            },
+            {
+                "from": "300",
+                "color": "#ffc800"
+            },
+            {
+                "from": "400",
+                "color": "#ea5353"
+            }
+        ],
+        "min": 0,
+        "max": "600",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 1410,
+        "y": 800,
         "wires": []
     },
     {
