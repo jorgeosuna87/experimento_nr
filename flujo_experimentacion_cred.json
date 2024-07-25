@@ -9,5 +9,6 @@
         "token": "4e2M2XvhV_tKFCJYvnJ0TA6pl27BdbVdD4h4A8lskUbtdXiESni6MtkfU63g9ezw1us2D3EfwbJXoFt3umMlFA==",
         "organization": "aspro",
         "bucket": "sensores"
-    }
+    },
+    "mqtt_broker_1": {}
 }

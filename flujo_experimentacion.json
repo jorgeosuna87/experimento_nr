@@ -65,8 +65,8 @@
     {
         "id": "e9c3b7a8.f1b4f8",
         "type": "tab",
-        "label": "Prueba Ajuste Temperatura",
-        "disabled": true,
+        "label": "Formulario",
+        "disabled": false,
         "info": ""
     },
     {
@@ -87,7 +87,7 @@
         "id": "0abce1a265bb0231",
         "type": "tab",
         "label": "Tablero_influxdb",
-        "disabled": true,
+        "disabled": false,
         "info": ""
     },
     {
@@ -459,7 +459,7 @@
         "id": "mqtt_broker_1",
         "type": "mqtt-broker",
         "name": "Broker MQTT USR-W610",
-        "broker": "192.168.1.44",
+        "broker": "192.168.0.145",
         "port": "1883",
         "clientid": "",
         "autoConnect": true,
@@ -9424,70 +9424,36 @@
         "wires": []
     },
     {
-        "id": "9184f2e7.dada4",
-        "type": "inject",
+        "id": "8b8e47c239fb05a2",
+        "type": "ui-form",
         "z": "e9c3b7a8.f1b4f8",
-        "name": "Simular Temperatura Sensor",
-        "props": [
+        "name": "",
+        "label": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "options": [
             {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
+                "value": "",
+                "label": "",
+                "type": "",
+                "required": true
             }
         ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "1",
-        "topic": "",
-        "payload": "194.1",
-        "payloadType": "num",
-        "x": 300,
-        "y": 280,
+        "formValue": {},
+        "payload": "",
+        "submit": "submit",
+        "cancel": "clear",
+        "resetOnSubmit": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 770,
+        "y": 400,
         "wires": [
-            [
-                "d5bcd3b4.0fbd6"
-            ]
+            []
         ]
-    },
-    {
-        "id": "d5bcd3b4.0fbd6",
-        "type": "function",
-        "z": "e9c3b7a8.f1b4f8",
-        "name": "Ajustar Temperatura",
-        "func": "msg.payload = 1.3587 * msg.payload - 14.0434;\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 280,
-        "wires": [
-            [
-                "b8a1bb91.8f8b48"
-            ]
-        ]
-    },
-    {
-        "id": "b8a1bb91.8f8b48",
-        "type": "debug",
-        "z": "e9c3b7a8.f1b4f8",
-        "name": "Resultado",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 720,
-        "y": 280,
-        "wires": []
     },
     {
         "id": "a2190cefde701caf",
@@ -10187,59 +10153,6 @@
         "wires": []
     },
     {
-        "id": "0301371619f2b614",
-        "type": "debug",
-        "z": "0abce1a265bb0231",
-        "name": "debug 14",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 680,
-        "y": 680,
-        "wires": []
-    },
-    {
-        "id": "a451f56d9b293807",
-        "type": "change",
-        "z": "0abce1a265bb0231",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "{\"volumen\": payload}",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "fields.volumen",
-                "pt": "msg",
-                "to": "payload.volumen",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 440,
-        "y": 740,
-        "wires": [
-            [
-                "b3e1ad35d8ae921c",
-                "0301371619f2b614",
-                "e4475e804c34ec05"
-            ]
-        ]
-    },
-    {
         "id": "143cc9fa3c9cf5c7",
         "type": "mqtt in",
         "z": "0abce1a265bb0231",
@@ -10251,12 +10164,12 @@
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 200,
-        "y": 740,
+        "x": 360,
+        "y": 800,
         "wires": [
             [
-                "a451f56d9b293807",
-                "ca806af6801a78db"
+                "ca806af6801a78db",
+                "e4475e804c34ec05"
             ]
         ]
     },
@@ -10272,8 +10185,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 420,
-        "y": 800,
+        "x": 580,
+        "y": 860,
         "wires": []
     },
     {
@@ -10356,8 +10269,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 650,
-        "y": 840,
+        "x": 610,
+        "y": 800,
         "wires": []
     },
     {
@@ -10434,24 +10347,6 @@
         "bucket": "prueba_1",
         "x": 680,
         "y": 580,
-        "wires": []
-    },
-    {
-        "id": "b3e1ad35d8ae921c",
-        "type": "influxdb out",
-        "z": "0abce1a265bb0231",
-        "influxdb": "cf4bce8f993858ac",
-        "name": "InfluxDB Output",
-        "measurement": "volumen",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "",
-        "precisionV18FluxV20": "us",
-        "retentionPolicyV18Flux": "",
-        "org": "aspro",
-        "bucket": "prueba_1",
-        "x": 660,
-        "y": 740,
         "wires": []
     },
     {
@@ -11369,8 +11264,8 @@
         "strings": true,
         "include_empty_strings": "",
         "include_null_values": "",
-        "x": 340,
-        "y": 160,
+        "x": 700,
+        "y": 240,
         "wires": [
             [
                 "nodo_funcion"
@@ -11390,8 +11285,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 540,
-        "y": 160,
+        "x": 900,
+        "y": 240,
         "wires": [
             [
                 "nodo_debug"
@@ -11412,8 +11307,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 740,
-        "y": 160,
+        "x": 1100,
+        "y": 240,
         "wires": []
     },
     {
@@ -11429,8 +11324,8 @@
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 160,
-        "y": 160,
+        "x": 520,
+        "y": 240,
         "wires": [
             [
                 "nodo_csv"
@@ -11449,8 +11344,8 @@
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 180,
-        "y": 300,
+        "x": 540,
+        "y": 380,
         "wires": [
             [
                 "e5a8bcaf8b4c7518"
@@ -11472,8 +11367,8 @@
         "strings": true,
         "include_empty_strings": "",
         "include_null_values": "",
-        "x": 380,
-        "y": 300,
+        "x": 740,
+        "y": 380,
         "wires": [
             [
                 "2daf069a6adda8b4"
@@ -11491,8 +11386,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 580,
-        "y": 300,
+        "x": 940,
+        "y": 380,
         "wires": [
             [
                 "3dc3f3232bc2794e"
@@ -11510,8 +11405,8 @@
         "tostatus": false,
         "complete": "true",
         "targetType": "full",
-        "x": 780,
-        "y": 300,
+        "x": 1140,
+        "y": 380,
         "wires": []
     },
     {
