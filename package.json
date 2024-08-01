@@ -10,7 +10,8 @@
         "node-red-dashboard": "3.6.5",
         "node-red-node-email": "2.2.1",
         "node-red-node-ping": "0.3.3",
-        "node-red-node-serialport": "2.0.2"
+        "node-red-node-serialport": "2.0.2",
+        "node-red-contrib-stackhero-influxdb-v2": "1.0.4"
     },
     "node-red": {
         "settings": {

@@ -115,14 +115,21 @@
         "env": []
     },
     {
+<<<<<<< HEAD
         "id": "c7f0e94473164caf",
         "type": "tab",
         "label": "ADC2-dockerreal",
+=======
+        "id": "3bd837617e04ac09",
+        "type": "tab",
+        "label": "queue",
+>>>>>>> 114f4bdc11ebadface4dda2e1b9563f4cc039f49
         "disabled": false,
         "info": "",
         "env": []
     },
     {
+<<<<<<< HEAD
         "id": "f50614b4d0a44c0f",
         "type": "subflow",
         "name": "Modbus Heartbeat",
@@ -135,6 +142,8 @@
         "color": "#DDAA99"
     },
     {
+=======
+>>>>>>> 114f4bdc11ebadface4dda2e1b9563f4cc039f49
         "id": "feca9c5ced6ec599",
         "type": "mqtt-broker",
         "name": "mqtt_tb_MP-1.1",
@@ -1470,6 +1479,36 @@
         "host": "influxdb2",
         "port": "8086",
         "tls": false
+    },
+    {
+        "id": "661d09df777a5259",
+        "type": "modbus-client",
+        "name": "pruebas",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": true,
+        "tcpHost": "192.168.1.75",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "/dev/ttyUSB0",
+        "serialType": "RTU",
+        "serialBaudrate": "9600",
+        "serialDatabits": "8",
+        "serialStopbits": "1",
+        "serialParity": "none",
+        "serialConnectionDelay": "100",
+        "serialAsciiResponseStartDelimiter": "0x3A",
+        "unit_id": "1",
+        "commandDelay": "1",
+        "clientTimeout": "1000",
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": "2000",
+        "parallelUnitIdsAllowed": true,
+        "showErrors": false,
+        "showWarnings": true,
+        "showLogs": true
     },
     {
         "id": "2",
@@ -7565,7 +7604,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "19500",
+        "payload": "15600",
         "payloadType": "num",
         "x": 1490,
         "y": 480,
@@ -7631,14 +7670,15 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "15500",
+        "payload": "9500",
         "payloadType": "num",
         "x": 1530,
         "y": 860,
         "wires": [
             [
                 "ed83ac5be50fc27a",
-                "afb5d4de17525b0c"
+                "afb5d4de17525b0c",
+                "e2fd54688464cad7"
             ]
         ]
     },
@@ -11346,9 +11386,236 @@
         "wires": []
     },
     {
+<<<<<<< HEAD
         "id": "01971a0166189efa",
         "type": "change",
         "z": "c7f0e94473164caf",
+=======
+        "id": "e35a4b7af5461031",
+        "type": "debug",
+        "z": "3bd837617e04ac09",
+        "name": "Flex Getter",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1410,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "1d0acf47af0d0c5c",
+        "type": "debug",
+        "z": "3bd837617e04ac09",
+        "name": "Flex Write",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1440,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "74f24cef68a52071",
+        "type": "debug",
+        "z": "3bd837617e04ac09",
+        "name": "Status Messages",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1450,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "cff6d83b78cf4600",
+        "type": "inject",
+        "z": "3bd837617e04ac09",
+        "name": "Read 1000",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "read_test",
+        "payload": "{\"value\":0,\"fc\":3,\"unitid\":1,\"address\":1000,\"quantity\":20}",
+        "payloadType": "json",
+        "x": 920,
+        "y": 380,
+        "wires": [
+            [
+                "87cfa28fd7e74c52"
+            ]
+        ]
+    },
+    {
+        "id": "d8a0df47ce40ca3f",
+        "type": "inject",
+        "z": "3bd837617e04ac09",
+        "name": "update",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "update",
+        "payload": "",
+        "payloadType": "date",
+        "x": 910,
+        "y": 320,
+        "wires": [
+            [
+                "87cfa28fd7e74c52"
+            ]
+        ]
+    },
+    {
+        "id": "4940d44cbe7cfd1d",
+        "type": "inject",
+        "z": "3bd837617e04ac09",
+        "name": "next",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "next",
+        "payload": "",
+        "payloadType": "date",
+        "x": 930,
+        "y": 580,
+        "wires": [
+            [
+                "87cfa28fd7e74c52"
+            ]
+        ]
+    },
+    {
+        "id": "2622679c0fb7ceaf",
+        "type": "inject",
+        "z": "3bd837617e04ac09",
+        "name": "Read 2000",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "read_test_2",
+        "payload": "{\"value\":0,\"fc\":3,\"unitid\":1,\"address\":2000,\"quantity\":20}",
+        "payloadType": "json",
+        "x": 920,
+        "y": 440,
+        "wires": [
+            [
+                "87cfa28fd7e74c52"
+            ]
+        ]
+    },
+    {
+        "id": "240289ea44994d54",
+        "type": "inject",
+        "z": "3bd837617e04ac09",
+        "name": "Write",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "write",
+        "payload": "{\"value\":100,\"fc\":6,\"unitid\":1,\"address\":1520,\"quantity\":20}",
+        "payloadType": "json",
+        "x": 910,
+        "y": 500,
+        "wires": [
+            [
+                "87cfa28fd7e74c52"
+            ]
+        ]
+    },
+    {
+        "id": "ccd42b930184550c",
+        "type": "delay",
+        "z": "3bd837617e04ac09",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1420,
+        "y": 340,
+        "wires": [
+            [
+                "d2d85179a058bb66"
+            ]
+        ]
+    },
+    {
+        "id": "d2d85179a058bb66",
+        "type": "change",
+        "z": "3bd837617e04ac09",
+>>>>>>> 114f4bdc11ebadface4dda2e1b9563f4cc039f49
         "name": "Advance queue",
         "rules": [
             {
@@ -11364,15 +11631,24 @@
         "from": "",
         "to": "",
         "reg": false,
+<<<<<<< HEAD
         "x": 560,
         "y": 480,
         "wires": [
             [
                 "a07c1bb5ab125e0f"
+=======
+        "x": 1100,
+        "y": 220,
+        "wires": [
+            [
+                "87cfa28fd7e74c52"
+>>>>>>> 114f4bdc11ebadface4dda2e1b9563f4cc039f49
             ]
         ]
     },
     {
+<<<<<<< HEAD
         "id": "a07c1bb5ab125e0f",
         "type": "function",
         "z": "c7f0e94473164caf",
@@ -11380,10 +11656,19 @@
         "func": "let resendifnoresposne = true; // resend the last message is no response is received\nlet resendinterval = 10; // resend last e message every x seconds\nlet online_threshold = 10; // Seconds between updates under which the device is considered online\nlet offline_threshold = 300; // Seconds between updates above which the device is considered offline\n\nlet notifmsg = null;\n\n// Check and make sure the incoming message has a topic\nif ((msg.topic === \"\") || (msg.topic === null) || (msg.topic === undefined)) {\n    node.status({ fill: \"red\", shape: \"dot\", text: \"Topic missing\" });\n    return;\n}\n\nlet lastupdate = context.get(\"lastupdate\");\nlet state = context.get(\"state\") | 0;\nlet queue = context.get(\"queue\");\nlet queuecount = 0;\nif (queue === undefined) {\n    queue = [];\n} else {\n    if (Array.isArray(queue)) {\n        queuecount = queue.length;\n    } else {\n        queue = [];\n    }\n}\nlet current = new Date().getTime();\nlet send = false;\n\nswitch (msg.topic.toLowerCase()) {\n    case \"update\":\n        // Update the timer and statistics\n\n        if (lastupdate !== undefined) {\n            notifmsg = { \"topic\": \"Information\", \"payload\": {} };\n            current = current - lastupdate;\n            current = Math.floor(current / 1000);\n            notifmsg.payload.secondsincelastupdate = current;\n            var minute = Math.floor(current / 60);\n            var hour = Math.floor(minute / 60);\n            var day = Math.floor(hour / 24);\n            if (current > 24 * 60 * 60) {\n                notifmsg.payload.updatetext = \"Last update \" + day + \" days, \" + hour % 24 + \" hours, \" + minute % 60 + \" minutes, \" + current % 60 + \" seconds ago\";\n            } else if (current > 60 * 60) {\n                notifmsg.payload.updatetext = \"Last update \" + hour % 24 + \" hours, \" + minute % 60 + \" minutes, \" + current % 60 + \" seconds ago\";\n            } else if (current > 60) {\n                notifmsg.payload.updatetext = \"Last update \" + minute % 60 + \" minutes, \" + current % 60 + \" seconds ago\";\n            } else {\n                notifmsg.payload.updatetext = \"Last update \" + current % 60 + \" seconds ago\";\n            }\n\n            // Resend last message if there is no response from the server\n            if (resendifnoresposne) {\n                if ((current > 0) && (current % resendinterval === 0)) {\n                    let lastmsg = context.get(\"lastmsg\");\n                    if ((lastmsg !== undefined) && (context.get(\"sent\"))) {\n                        notifmsg.payload.resend = true;\n                        if ((lastmsg.payload.fc === 1) || (lastmsg.payload.fc === 2) || (lastmsg.payload.fc === 3) || (lastmsg.payload.fc === 4)) {\n                            // this is a modbus read request\n                            node.status({ fill: \"green\", shape: \"dot\", text: \"Read re-sent!\" });\n                            return [lastmsg, null, notifmsg];\n                        } else {\n                            // this is a modbus write request\n                            node.status({ fill: \"green\", shape: \"dot\", text: \"Write re-sent!\" });\n                            return [null, lastmsg, notifmsg];\n                        }\n                    }\n                }\n            }\n\n            // Check for online state\n            if (state !== 1) {\n                if (current < online_threshold) {\n                    notifmsg.topic = \"Warning\";\n                    notifmsg.payload.text = \"Device is now online\";\n                    notifmsg.payload.statuschange = true;\n                    state = 1;\n                    context.set(\"state\", state);\n                }\n            } else {\n                if (current > offline_threshold) {\n                    notifmsg.topic = \"Error\";\n                    notifmsg.payload.text = \"Device is not transmitting\";\n                    notifmsg.payload.statuschange = true;\n                    state = 99;\n                    context.set(\"state\", state);\n                }\n            }\n            notifmsg.payload.state = state;\n            if (state === 1) {\n                node.status({ fill: \"blue\", shape: \"ring\", text: queuecount + \" | \" + notifmsg.payload.updatetext });\n            } else {\n                node.status({ fill: \"red\", shape: \"ring\", text: queuecount + \" | \" + notifmsg.payload.updatetext });\n            }\n            return [null, null, notifmsg];\n\n        } else {\n            node.status({ fill: \"grey\", shape: \"ring\", text: \"No data\" });\n        }\n        break;\n    case \"next\":\n        // Update the lastupdate counter\n        context.set(\"lastupdate\", current);\n        context.set(\"sent\", false);\n        send = true;\n        break;\n    case \"reset\":\n        context.set(\"queue\", []);\n        context.set(\"sent\", false);\n        context.set(\"lastmsg\", undefined);\n        break;\n    default:\n        // The incoming message is a modbus request\n\n        // delete the last msg to prevent from being resent\n        // context.set(\"lastmsg\", undefined);\n\n        // Check if there is already a message in the queue with the same topic. \n        // If there is it needs to be deleted, because we only keep the last message.\n        for (let i = queue.length - 1; i >= 0; i--) {\n            if (queue[i].topic === msg.topic) {\n                queue.splice(i, 1);\n            }\n        }\n\n        // Add the message to the end of the queue\n        queue.push(msg);\n        context.set(\"queue\", queue);\n\n        if (!context.get(\"sent\")) {\n            send = true;\n        }\n        node.status({ fill: \"green\", shape: \"dot\", text: queue.length });\n\n}\n\n// We need to send out a new message\nif (send) {\n\n    if (queue.length > 0) {\n        // Get the older message from the array\n        let newmsg = queue[0];\n        // remove this message\n        queue.splice(0, 1);\n        context.set(\"queue\", queue);\n        context.set(\"sent\", true);\n        context.set(\"lastmsg\", newmsg);\n\n        if ((newmsg.payload.fc === 1) || (newmsg.payload.fc === 2) || (newmsg.payload.fc === 3) || (newmsg.payload.fc === 4)) {\n            // this is a modbus read request\n            node.status({ fill: \"green\", shape: \"dot\", text: \"Read sent!\" });\n            return [newmsg, null, null];\n        } else {\n            // this is a modbus write request\n            node.status({ fill: \"green\", shape: \"dot\", text: \"Write sent!\" });\n            return [null, newmsg, null];\n        }\n\n    }\n}\n",
         "outputs": 3,
         "timeout": "",
+=======
+        "id": "87cfa28fd7e74c52",
+        "type": "function",
+        "z": "3bd837617e04ac09",
+        "name": "Modbus Queue",
+        "func": "let resendifnoresposne = true; // resend the last message is no response is received\nlet resendinterval = 10; // resend last e message every x seconds\nlet online_threshold = 10; // Seconds between updates under which the device is considered online\nlet offline_threshold = 300; // Seconds between updates above which the device is considered offline\n\nlet notifmsg = null;\n\n// Check and make sure the incoming message has a topic\nif ((msg.topic===\"\")||(msg.topic===null)||(msg.topic===undefined)) {\n    node.status({fill:\"red\",shape:\"dot\",text:\"Topic missing\"});\n    return;\n}\n\nlet lastupdate = context.get(\"lastupdate\");\nlet state = context.get(\"state\") | 0;\nlet queue = context.get(\"queue\");\nlet queuecount = 0;\nif (queue === undefined) {\n    queue = [];\n} else {\n    if (Array.isArray(queue)) {\n        queuecount = queue.length;\n    } else {\n        queue = [];\n    }\n}\nlet current = new Date().getTime();\nlet send = false;\n\nswitch (msg.topic.toLowerCase()) {\n    case \"update\":\n        // Update the timer and statistics\n\n        if (lastupdate !== undefined) {\n            notifmsg = { \"topic\": \"Information\", \"payload\": {} };\n            current = current - lastupdate;\n            current = Math.floor(current / 1000);\n            notifmsg.payload.secondsincelastupdate = current;\n            var minute = Math.floor(current / 60);\n            var hour = Math.floor(minute / 60);\n            var day = Math.floor(hour / 24);\n            if (current > 24 * 60 * 60) {\n                notifmsg.payload.updatetext = \"Last update \" + day + \" days, \" + hour % 24 + \" hours, \" + minute % 60 + \" minutes, \" + current % 60 + \" seconds ago\";\n            } else if (current > 60 * 60) {\n                notifmsg.payload.updatetext = \"Last update \" + hour % 24 + \" hours, \" + minute % 60 + \" minutes, \" + current % 60 + \" seconds ago\";\n            } else if (current > 60) {\n                notifmsg.payload.updatetext = \"Last update \" + minute % 60 + \" minutes, \" + current % 60 + \" seconds ago\";\n            } else {\n                notifmsg.payload.updatetext = \"Last update \" + current % 60 + \" seconds ago\";\n            }\n\n            // Resend last message if there is no response from the server\n            if (resendifnoresposne) {\n                if ((current>0) && (current % resendinterval===0)) {\n                    let lastmsg = context.get(\"lastmsg\");\n                    if ((lastmsg!==undefined) && (context.get(\"sent\"))) {\n                        notifmsg.payload.resend = true;\n                        if ((lastmsg.payload.fc === 1) || (lastmsg.payload.fc === 2) || (lastmsg.payload.fc === 3) || (lastmsg.payload.fc === 4)) {\n                            // this is a modbus read request\n                            node.status({ fill: \"green\", shape: \"dot\", text: \"Read re-sent!\" });\n                            return [lastmsg, null, notifmsg];\n                        } else {\n                            // this is a modbus write request\n                            node.status({ fill: \"green\", shape: \"dot\", text: \"Write re-sent!\" });\n                            return [null, lastmsg, notifmsg];\n                        }\n                    }\n                }\n            }\n\n            // Check for online state\n            if (state !== 1) {\n                if (current < online_threshold) {\n                    notifmsg.topic = \"Warning\";\n                    notifmsg.payload.text = \"Device is now online\";\n                    notifmsg.payload.statuschange = true;\n                    state = 1;\n                    context.set(\"state\", state);\n                }\n            } else {\n                if (current > offline_threshold) {\n                    notifmsg.topic = \"Error\";\n                    notifmsg.payload.text = \"Device is not transmitting\";\n                    notifmsg.payload.statuschange = true;\n                    state = 99;\n                    context.set(\"state\", state);\n                }\n            }\n            notifmsg.payload.state = state;\n            if (state===1) {\n                node.status({ fill: \"blue\", shape: \"ring\", text: queuecount+ \" | \"+notifmsg.payload.updatetext });\n            } else {\n                node.status({ fill: \"red\", shape: \"ring\", text: queuecount + \" | \" + notifmsg.payload.updatetext });\n            }\n            return [null, null, notifmsg];\n\n        } else {\n            node.status({ fill: \"grey\", shape: \"ring\", text: \"No data\" });\n        }\n        break;\n    case \"next\":\n        // Update the lastupdate counter\n        context.set(\"lastupdate\", current);\n        context.set(\"sent\", false);\n        send = true;\n        break;\n    case \"reset\":\n        context.set(\"queue\",[]);\n        context.set(\"sent\", false);\n        context.set(\"lastmsg\", undefined);\n        break;\n    default:\n        // The incoming message is a modbus request\n\n        // delete the last msg to prevent from being resent\n        // context.set(\"lastmsg\", undefined);\n\n        // Check if there is already a message in the queue with the same topic. \n        // If there is it needs to be deleted, because we only keep the last message.\n        for (let i=queue.length-1; i>=0; i--) {\n            if (queue[i].topic === msg.topic) {\n                queue.splice(i,1);\n            }\n        }\n\n        // Add the message to the end of the queue\n        queue.push(msg);\n        context.set(\"queue\",queue);\n\n        if (!context.get(\"sent\")) {\n            send = true;\n        }\n        node.status({ fill: \"green\", shape: \"dot\", text: queue.length });\n\n}\n\n// We need to send out a new message\nif (send) {\n\n    if (queue.length>0) {\n        // Get the older message from the array\n        let newmsg = queue[0];\n        // remove this message\n        queue.splice(0,1);\n        context.set(\"queue\",queue);\n        context.set(\"sent\", true);\n        context.set(\"lastmsg\", newmsg);\n\n        if ((newmsg.payload.fc === 1) || (newmsg.payload.fc === 2) || (newmsg.payload.fc === 3) || (newmsg.payload.fc === 4)) {\n            // this is a modbus read request\n            node.status({ fill: \"green\", shape: \"dot\", text: \"Read sent!\" });\n            return[newmsg,null,null];\n        } else {\n            // this is a modbus write request\n            node.status({ fill: \"green\", shape: \"dot\", text: \"Write sent!\" });\n            return [null, newmsg, null];\n        }\n        \n    }\n}\n",
+        "outputs": 3,
+>>>>>>> 114f4bdc11ebadface4dda2e1b9563f4cc039f49
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
+<<<<<<< HEAD
         "x": 500,
         "y": 660,
         "wires": [
@@ -11395,11 +11680,27 @@
             [
                 "2337bb8b424a5a30",
                 "9a45615eb27b9d9f"
+=======
+        "x": 1120,
+        "y": 420,
+        "wires": [
+            [
+                "e35a4b7af5461031",
+                "ccd42b930184550c"
+            ],
+            [
+                "1d0acf47af0d0c5c",
+                "ccd42b930184550c"
+            ],
+            [
+                "74f24cef68a52071"
+>>>>>>> 114f4bdc11ebadface4dda2e1b9563f4cc039f49
             ]
         ],
         "info": "# Modbus Queue\r\n\r\nThis node queueing read and write messages for modbus. Use this node if you are reading and writing the same device with many different requests. E.g. reading different coil/register intervals continously and also writing to the device at the same time.\r\n\r\nIt does a few things:\r\n- queues all messages arrive on the input port\r\n- based on the msg.topic, older messages of the same topci is ignored\r\n- sends out the oldest message and waits for the \r\n- monitors the time since last message and send out report on the output\r\n- handles online/offline status\r\n- resend the last message is response is not received in time\r\n\r\n## Input Data\r\n\r\n### payload\r\n\r\nThe payload should contain the data that gets sent to the flex-getter or flex-write node.\r\nTypical modbus read payload:\r\n`{\"value\":0,\"fc\":3,\"unitid\":1,\"address\":1000,\"quantity\":20}`\r\nTypical modbus write payload:\r\n`{\"value\":false,\"fc\":5,\"unitid\":1,\"address\":0,\"quantity\":1}`\r\n\r\n### topic\r\n\r\nEach message must contain a topic (any text), and this topic is used to identify the different read/write requests and delete any earlier request with the same topic if it still in the queueing\r\n\r\nThere are a few reserved topic for special function (for these payload is ignored):\r\n- reset: resets the queue and deleted any data collected so far\r\n- next: this is the message fed back from the flex getter/write node to indicate to this node that a new message can be sent out\r\n- update: this should be coming from a 1 second time to display the current queue count, time since the last update and online/offline status\r\n\r\n## Output ports\r\n\r\n### Port 1: flex getter\r\n\r\nThis output should be connected to a modbos-flex-getter and all the read requests will be sent out through this port\r\n\r\n### Port 2: flex write\r\n\r\nThis output should be connected to a modbos-flex-write and all the write requests will be sent out through this port\r\n\r\n### Port 3: status messages\r\n\r\nThis port outputs a status message for every update message (msg.topic=\"update\").\r\n\r\n- topic: \"Information\" for regular updates, \"Warning\": offline device is now back online, \"Error\": device is offline\r\n- payload.text: message like when the device gone offline, or back online\r\n- payload.updatetext: time passed since the last update (human readable format)\r\n- payload.secondsincelastupdate: number of seconds since the last update from the device\r\n- payload.statuschange: true if status is changed (gone offline, back online)\r\n- payload.state: 0: initial state, no data yet, 1: device online, 99: device offline\r\n\r\n## Node Settings\r\n\r\nChange the settings in the first 4 lines of the code to influence the behaviour. Explanation is in the code as comment."
     },
     {
+<<<<<<< HEAD
         "id": "2337bb8b424a5a30",
         "type": "function",
         "z": "c7f0e94473164caf",
@@ -11407,19 +11708,80 @@
         "func": "if (msg.topic === \"Information\") {\n    // Registrar mensajes de información\n    node.log(\"Información: \" + msg.payload.updatetext);\n} else if (msg.topic === \"Warning\") {\n    // Registrar mensajes de advertencia\n    node.warn(\"Advertencia: \" + msg.payload.text);\n} else if (msg.topic === \"Error\") {\n    // Registrar mensajes de error\n    node.error(\"Error: \" + msg.payload.text);\n}\n\n// Puedes agregar lógica adicional para procesar otros campos del mensaje de estado\n// Por ejemplo, puedes verificar el valor de msg.payload.state para realizar acciones específicas\n// según el estado del dispositivo (en línea, fuera de línea, etc.)\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
+=======
+        "id": "delay-after-reset",
+        "type": "delay",
+        "z": "3bd837617e04ac09",
+        "name": "Esperar antes de reconectar",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 900,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "setup_flow",
+        "type": "function",
+        "z": "3bd837617e04ac09",
+        "name": "Setup ADC Registers",
+        "func": "// Configuración de registros ADC\nflow.set('adcRegisters', [\n    {topic: \"read_ADC2_AI1\", payload: {fc: 4, unitid: 1, address: 0, quantity: 1}},\n    {topic: \"read_ADC2_AI2\", payload: {fc: 4, unitid: 1, address: 1, quantity: 1}},\n    {topic: \"read_ADC2_AI3\", payload: {fc: 4, unitid: 1, address: 2, quantity: 1}},\n    {topic: \"read_ADC2_AI4\", payload: {fc: 3, unitid: 1, address: 0, quantity: 1}}\n]);\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "// Código para ejecutar al iniciar\nflow.set('currentRegisterIndex', 0);",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 660,
+        "wires": [
+            [
+                "start_reading_cycle"
+            ]
+        ]
+    },
+    {
+        "id": "start_reading_cycle",
+        "type": "function",
+        "z": "3bd837617e04ac09",
+        "name": "Start Reading Cycle",
+        "func": "function getNextRegister() {\n    const registers = flow.get('adcRegisters');\n    let index = flow.get('currentRegisterIndex');\n    \n    if (index >= registers.length) {\n        index = 0;\n    }\n    \n    flow.set('currentRegisterIndex', index + 1);\n    return registers[index];\n}\n\nconst nextReg = getNextRegister();\nmsg.topic = nextReg.topic;\nmsg.payload = nextReg.payload;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+>>>>>>> 114f4bdc11ebadface4dda2e1b9563f4cc039f49
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
+<<<<<<< HEAD
         "x": 690,
         "y": 740,
         "wires": [
             [
                 "057b26cc6b46467d"
+=======
+        "x": 540,
+        "y": 720,
+        "wires": [
+            [
+                "modbus_queue"
+>>>>>>> 114f4bdc11ebadface4dda2e1b9563f4cc039f49
             ]
         ]
     },
     {
+<<<<<<< HEAD
         "id": "f662b09a78806640",
         "type": "inject",
         "z": "c7f0e94473164caf",
@@ -11445,13 +11807,86 @@
         "wires": [
             [
                 "a07c1bb5ab125e0f"
+=======
+        "id": "modbus_queue",
+        "type": "function",
+        "z": "3bd837617e04ac09",
+        "name": "Modbus Queue",
+        "func": "const CONNECTION_TIMEOUT = 60000; // 60 segundos\nlet reconnectAttempts = context.get('reconnectAttempts') || 0;\n\nfunction resetQueue() {\n    context.set('queue', []);\n    context.set('sent', false);\n    context.set('lastmsg', null);\n}\n\nfunction processQueue() {\n    const queue = context.get('queue') || [];\n    if (queue.length > 0 && !context.get('sent')) {\n        const nextMsg = queue.shift();\n        context.set('queue', queue);\n        context.set('sent', true);\n        context.set('lastmsg', nextMsg);\n        return nextMsg;\n    }\n    return null;\n}\n\nswitch (msg.topic.toLowerCase()) {\n    case 'update':\n        const lastUpdate = context.get('lastUpdate') || 0;\n        const currentTime = Date.now();\n        \n        if (currentTime - lastUpdate > CONNECTION_TIMEOUT) {\n            node.warn(\"Pérdida de comunicación detectada\");\n            return [{topic: 'reset', payload: 'connection'}, null, {topic: 'status', payload: {state: 'offline'}}];\n        }\n        break;\n        \n    case 'reset':\n        resetQueue();\n        reconnectAttempts = 0;\n        context.set('reconnectAttempts', reconnectAttempts);\n        return [{topic: 'reconnect', payload: msg.payload}, null, {topic: 'status', payload: {state: 'reconnecting'}}];\n        \n    case 'next':\n        context.set('lastUpdate', Date.now());\n        context.set('sent', false);\n        const nextMsg = processQueue();\n        if (nextMsg) {\n            return [nextMsg, null, null];\n        } else {\n            // Si la cola está vacía, iniciamos un nuevo ciclo de lectura\n            return [{topic: 'startNewCycle', payload: ''}, null, null];\n        }\n        \n    default:\n        // Añadir el mensaje a la cola\n        const queue = context.get('queue') || [];\n        queue.push(msg);\n        context.set('queue', queue);\n        \n        if (!context.get('sent')) {\n            return [processQueue(), null, null];\n        }\n}\n\nreturn [null, null, null];",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 720,
+        "wires": [
+            [
+                "modbus_flex_getter"
+            ],
+            [],
+            [
+                "status_handler"
+>>>>>>> 114f4bdc11ebadface4dda2e1b9563f4cc039f49
             ]
         ]
     },
     {
+<<<<<<< HEAD
         "id": "06471d5f7d054bf0",
         "type": "switch",
         "z": "c7f0e94473164caf",
+=======
+        "id": "modbus_flex_getter",
+        "type": "modbus-flex-getter",
+        "z": "3bd837617e04ac09",
+        "name": "ADC2",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": false,
+        "logIOActivities": false,
+        "server": "661d09df777a5259",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 980,
+        "y": 720,
+        "wires": [
+            [
+                "process_response",
+                "adc2_registers"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "process_response",
+        "type": "function",
+        "z": "3bd837617e04ac09",
+        "name": "Process Response",
+        "func": "// Procesar la respuesta si es necesario\n// Por ejemplo, convertir los datos crudos a valores significativos\n\n// Enviar 'next' para procesar el siguiente elemento en la cola\nmsg.topic = 'next';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 660,
+        "wires": [
+            [
+                "modbus_queue"
+            ]
+        ]
+    },
+    {
+        "id": "adc2_registers",
+        "type": "switch",
+        "z": "3bd837617e04ac09",
+>>>>>>> 114f4bdc11ebadface4dda2e1b9563f4cc039f49
         "name": "ADC2 Registers",
         "property": "topic",
         "propertyType": "msg",
@@ -11480,6 +11915,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 4,
+<<<<<<< HEAD
         "x": 940,
         "y": 640,
         "wires": [
@@ -11880,10 +12316,19 @@
                 "06471d5f7d054bf0",
                 "a06df64847a114ee"
             ],
+=======
+        "x": 1200,
+        "y": 720,
+        "wires": [
+            [],
+            [],
+            [],
+>>>>>>> 114f4bdc11ebadface4dda2e1b9563f4cc039f49
             []
         ]
     },
     {
+<<<<<<< HEAD
         "id": "afe5aba85e4b4c60",
         "type": "ui-chart",
         "z": "c7f0e94473164caf",
@@ -12124,6 +12569,12 @@
         "type": "inject",
         "z": "c7f0e94473164caf",
         "name": "ADC_2_AI1",
+=======
+        "id": "cyclic_trigger",
+        "type": "inject",
+        "z": "3bd837617e04ac09",
+        "name": "Cyclic Trigger",
+>>>>>>> 114f4bdc11ebadface4dda2e1b9563f4cc039f49
         "props": [
             {
                 "p": "payload"
@@ -12137,6 +12588,7 @@
         "crontab": "",
         "once": true,
         "onceDelay": "1",
+<<<<<<< HEAD
         "topic": "read_ADC2_AI1",
         "payload": "{\"value\":0,\"fc\":4,\"unitid\":1,\"address\":0,\"quantity\":1}",
         "payloadType": "json",
@@ -12145,14 +12597,48 @@
         "wires": [
             [
                 "a07c1bb5ab125e0f"
+=======
+        "topic": "startNewCycle",
+        "payload": "",
+        "payloadType": "date",
+        "x": 320,
+        "y": 780,
+        "wires": [
+            [
+                "start_reading_cycle"
+>>>>>>> 114f4bdc11ebadface4dda2e1b9563f4cc039f49
             ]
         ]
     },
     {
+<<<<<<< HEAD
         "id": "9ab720a051af1322",
         "type": "inject",
         "z": "c7f0e94473164caf",
         "name": "ADC_2_AI2",
+=======
+        "id": "status_handler",
+        "type": "debug",
+        "z": "3bd837617e04ac09",
+        "name": "Status Handler",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "update_inject",
+        "type": "inject",
+        "z": "3bd837617e04ac09",
+        "name": "Force Update",
+>>>>>>> 114f4bdc11ebadface4dda2e1b9563f4cc039f49
         "props": [
             {
                 "p": "payload"
@@ -12162,6 +12648,7 @@
                 "vt": "str"
             }
         ],
+<<<<<<< HEAD
         "repeat": "2",
         "crontab": "",
         "once": true,
@@ -12194,23 +12681,72 @@
         "repeat": "1",
         "crontab": "",
         "once": true,
+=======
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+>>>>>>> 114f4bdc11ebadface4dda2e1b9563f4cc039f49
         "onceDelay": 0.1,
         "topic": "update",
         "payload": "",
         "payloadType": "date",
+<<<<<<< HEAD
         "x": 260,
         "y": 540,
         "wires": [
             [
                 "a07c1bb5ab125e0f"
+=======
+        "x": 320,
+        "y": 840,
+        "wires": [
+            [
+                "modbus_queue"
+>>>>>>> 114f4bdc11ebadface4dda2e1b9563f4cc039f49
             ]
         ]
     },
     {
+<<<<<<< HEAD
         "id": "0474883a508182d6",
         "type": "inject",
         "z": "c7f0e94473164caf",
         "name": "next",
+=======
+        "id": "reset_inject",
+        "type": "inject",
+        "z": "3bd837617e04ac09",
+        "name": "Manual Reset",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "reset",
+        "payload": "connection",
+        "payloadType": "str",
+        "x": 320,
+        "y": 900,
+        "wires": [
+            [
+                "modbus_queue"
+            ]
+        ]
+    },
+    {
+        "id": "next_inject",
+        "type": "inject",
+        "z": "3bd837617e04ac09",
+        "name": "Force Next",
+>>>>>>> 114f4bdc11ebadface4dda2e1b9563f4cc039f49
         "props": [
             {
                 "p": "payload"
@@ -12227,15 +12763,24 @@
         "topic": "next",
         "payload": "",
         "payloadType": "date",
+<<<<<<< HEAD
         "x": 250,
         "y": 500,
         "wires": [
             [
                 "a07c1bb5ab125e0f"
+=======
+        "x": 320,
+        "y": 960,
+        "wires": [
+            [
+                "modbus_queue"
+>>>>>>> 114f4bdc11ebadface4dda2e1b9563f4cc039f49
             ]
         ]
     },
     {
+<<<<<<< HEAD
         "id": "22b59213704a4324",
         "type": "inject",
         "z": "c7f0e94473164caf",
@@ -12261,10 +12806,24 @@
         "wires": [
             [
                 "98a797e1bddb9d3c"
+=======
+        "id": "error_handler",
+        "type": "catch",
+        "z": "3bd837617e04ac09",
+        "name": "Error Handler",
+        "scope": null,
+        "uncaught": false,
+        "x": 320,
+        "y": 1020,
+        "wires": [
+            [
+                "process_error"
+>>>>>>> 114f4bdc11ebadface4dda2e1b9563f4cc039f49
             ]
         ]
     },
     {
+<<<<<<< HEAD
         "id": "17e177149f53d902",
         "type": "inject",
         "z": "c7f0e94473164caf",
@@ -12414,19 +12973,37 @@
         "func": "function prepareLogForInflux(msg, logType, details) {\n    return {\n        payload: {\n            bucket: 'logs',  // Asegúrate de crear este bucket en InfluxDB\n            precision: 'ms',\n            data: [{\n                measurement: 'node_red_logs',\n                tags: {\n                    flow_id: msg.flow_id || 'unknown',\n                    log_type: logType\n                },\n                fields: {\n                    details: JSON.stringify(details),\n                    payload: JSON.stringify(msg.payload)\n                },\n                timestamp: Date.now()\n            }]\n        }\n    };\n}\n\nif (msg.error) {\n    // Es un mensaje de error\n    return prepareLogForInflux(msg, 'error', msg.error);\n} else {\n    // Es un mensaje de evento normal\n    return prepareLogForInflux(msg, 'info', 'Normal operation');\n}",
         "outputs": 1,
         "timeout": 0,
+=======
+        "id": "process_error",
+        "type": "function",
+        "z": "3bd837617e04ac09",
+        "name": "Process Error",
+        "func": "node.error(\"Error detectado: \" + msg.error.message);\n\n// Enviar un mensaje de reset al Modbus Queue\nmsg.topic = 'reset';\nmsg.payload = 'error';\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+>>>>>>> 114f4bdc11ebadface4dda2e1b9563f4cc039f49
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
+<<<<<<< HEAD
         "x": 880,
         "y": 800,
         "wires": [
             [
                 "e452ef9137d983fd"
+=======
+        "x": 520,
+        "y": 1020,
+        "wires": [
+            [
+                "modbus_queue"
+>>>>>>> 114f4bdc11ebadface4dda2e1b9563f4cc039f49
             ]
         ]
     },
     {
+<<<<<<< HEAD
         "id": "a06df64847a114ee",
         "type": "debug",
         "z": "c7f0e94473164caf",
@@ -12442,5 +13019,25 @@
         "x": 850,
         "y": 560,
         "wires": []
+=======
+        "id": "setup_modbus_client",
+        "type": "function",
+        "z": "3bd837617e04ac09",
+        "name": "Setup Modbus Client",
+        "func": "const ModbusRTU = global.get('ModbusRTU');\n\nfunction setupModbusClient() {\n    let client = new ModbusRTU();\n    \n    client.connectTCP(\"192.168.1.75\", { port: 502 })\n        .then(() => {\n            node.log(\"Conexión Modbus establecida\");\n            flow.set('modbusConnected', true);\n        })\n        .catch(err => {\n            node.error(\"Error al conectar con Modbus: \" + err.message);\n            flow.set('modbusConnected', false);\n        });\n    \n    return client;\n}\n\nflow.set('modbusClient', setupModbusClient());\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 720,
+        "wires": [
+            [
+                "start_reading_cycle"
+            ]
+        ]
+>>>>>>> 114f4bdc11ebadface4dda2e1b9563f4cc039f49
     }
 ]
