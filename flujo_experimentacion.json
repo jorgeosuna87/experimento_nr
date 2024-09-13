@@ -11382,11 +11382,9 @@
         "wires": []
     },
     {
-<<<<<<< HEAD
-        "id": "01971a0166189efa",
-        "type": "change",
-        "z": "c7f0e94473164caf",
-=======
+    "id": "01971a0166189efa",
+    "type": "change",
+    "z": "c7f0e94473164caf",
         "id": "e35a4b7af5461031",
         "type": "debug",
         "z": "3bd837617e04ac09",
