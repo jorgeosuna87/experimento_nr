@@ -115,35 +115,31 @@
         "env": []
     },
     {
-<<<<<<< HEAD
-        "id": "c7f0e94473164caf",
-        "type": "tab",
-        "label": "ADC2-dockerreal",
-=======
-        "id": "3bd837617e04ac09",
-        "type": "tab",
-        "label": "queue",
->>>>>>> 114f4bdc11ebadface4dda2e1b9563f4cc039f49
-        "disabled": false,
-        "info": "",
-        "env": []
+ "id": "c7f0e94473164caf",
+  "type": "tab",
+  "label": "ADC2-dockerreal"
+},
+{
+  "id": "3bd837617e04ac09",
+  "type": "tab",
+  "label": "queue",
+  "disabled": false,
+  "info": "",
+  "env": []
+},
+{
+  "id": "f50614b4d0a44c0f",
+  "type": "subflow",
+  "name": "Modbus Heartbeat",
+  "info": "",
+  "category": "",
+  "in": [],
+  "out": [],
+  "env": [],
+  "meta": {},
+  "color": "#DDAA99"
     },
     {
-<<<<<<< HEAD
-        "id": "f50614b4d0a44c0f",
-        "type": "subflow",
-        "name": "Modbus Heartbeat",
-        "info": "",
-        "category": "",
-        "in": [],
-        "out": [],
-        "env": [],
-        "meta": {},
-        "color": "#DDAA99"
-    },
-    {
-=======
->>>>>>> 114f4bdc11ebadface4dda2e1b9563f4cc039f49
         "id": "feca9c5ced6ec599",
         "type": "mqtt-broker",
         "name": "mqtt_tb_MP-1.1",
